@@ -30,19 +30,20 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column         | Type    | Options     |
-| -------------- | --------| ----------- |
-| item_name      | string  | null: false |
-| image          | string  | null: false |
-| introduction   | text    | null: false |
-| category_id    | string  | null: false |
-| brands_id      | string  | null: false |
-| states         | string  | null: false |
-| price          | integer | null: false |
-| delivery_fee   | string  | null: false |
-| prefecture_id  | string  | null: false |
-| delivery_day   | string  | null: false |
-| user_id        | string  | null: false |
+| Column         | Type        | Options                       |
+| -------------- | ------------| ----------------------------- |
+| name           | string      | null: false                   |
+| image          | string      | null: false                   |
+| introduction   | text        | null: false                   |
+| category_id    | integer     | null: false                   |
+| brands_id      | integer     | null: false                   |
+| states         | string      | null: false                   |
+| price          | integer     | null: false                   |
+| delivery_fee   | string      | null: false                   |
+| prefecture_id  | string      | null: false                   |
+| delivery_day   | integer     | null: false                   |
+| user_id        | references  | null: false,foreign_key: true |
+
 
 
 
