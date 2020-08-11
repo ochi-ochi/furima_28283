@@ -30,19 +30,19 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column         | Type   | Options     |
-| -------------- | ------ | ----------- |
-| item_name      | string | null: false |
-| image          | string | null: false |
-| introduction   | string | null: false |
-| category_id    | string | null: false |
-| brands_id      | string | null: false |
-| states         | string | null: false |
-| price          | string | null: false |
-| delively_fee   | string | null: false |
-| prefecture_id  | string | null: false |
-| delively_day   | string | null: false |
-| user_id        | string | null: false |
+| Column         | Type    | Options     |
+| -------------- | --------| ----------- |
+| item_name      | string  | null: false |
+| image          | string  | null: false |
+| introduction   | text    | null: false |
+| category_id    | string  | null: false |
+| brands_id      | string  | null: false |
+| states         | string  | null: false |
+| price          | integer | null: false |
+| delivery_fee   | string  | null: false |
+| prefecture_id  | string  | null: false |
+| delivery_day   | string  | null: false |
+| user_id        | string  | null: false |
 
 
 
@@ -52,7 +52,7 @@ Things you may want to cover:
 - belongs_to_active_hash :categories
 - belongs_to_active_hush :brands
 - belongs_to_active_hush :prefecture
-- belongs_to_active_hush :delively_day
+- belongs_to_active_hush :delivery_day
 
 ## purchase テーブル
 
