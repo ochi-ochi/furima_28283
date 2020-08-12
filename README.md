@@ -31,7 +31,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_one :purchases
+- has_one :purchase
 
 ## items テーブル
 
@@ -54,7 +54,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :purchases
+- has_one :purchase
 - belongs_to_active_hash :categories
 - belongs_to_active_hush :brands
 - belongs_to_active_hush :prefecture
@@ -69,8 +69,9 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - has one :purchase_add
+- belongs_to :user
 
 ## purchase_add テーブル 
 
@@ -82,6 +83,8 @@ Things you may want to cover:
 | house_number   | integer     | null: false                   |
 | building_name  | integer     |                               |
 | tel_number     | string      | null: false                   |
+| purchase_id    | reference   | null: false                   |
+
 
 ### Association
 
