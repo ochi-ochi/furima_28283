@@ -49,7 +49,7 @@ Things you may want to cover:
 | states_id      | integer     | null: false                   |
 
 ### Association
-- has_one :user
+- belongs_to :user
 - has_one :purchase
 - belongs_to_active_hash :categories
 - belongs_to_active_hush :prefecture
@@ -59,10 +59,10 @@ Things you may want to cover:
 
 ## purchase テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| users     | reference  | null: false, foreign_key: true |
-| items     | reference  | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | reference  | null: false, foreign_key: true |
+| item     | reference  | null: false, foreign_key: true |
 
 ### Association
 
@@ -72,15 +72,15 @@ Things you may want to cover:
 
 ## purchase_add テーブル 
 
-| Column         | Type        | Options                       |
-| -------------- | ------------| ----------------------------- |
-| postal_code    | string      | null: false                   |
-| prefecture_id  | integer     | null: false                   |
-| city           | string      | null: false                   |
-| house_number   | integer     | null: false                   |
-| building_name  | integer     |                               |
-| tel_number     | string      | null: false                   |
-| purchase       | reference   | null: false                   |
+| Column         | Type        | Options                        |
+| -------------- | ------------| ------------------------------ |
+| postal_code    | string      | null: false                    |
+| prefecture_id  | integer     | null: false                    |
+| city           | string      | null: false                    |
+| house_number   | string      | null: false                    | 
+| building_name  | string      |                                |
+| tel_number     | string      | null: false                    |
+| purchase       | reference   | null: false, foreign_key: true |
 
 
 ### Association
