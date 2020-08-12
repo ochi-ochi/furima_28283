@@ -37,24 +37,25 @@ Things you may want to cover:
 
 | Column         | Type        | Options                       |
 | -------------- | ------------| ----------------------------- |
+| user           | reference   | null: false,foreign_key: true |
 | name           | string      | null: false                   |
 | image          | string      | null: false                   |
 | introduction   | text        | null: false                   |
-| category_id    | integer     | null: false                   |
-| states_id      | integer     | null: false                   |
 | price          | integer     | null: false                   |
-| delivery_fee_id| integer     | null: false                   |
+| category_id    | integer     | null: false                   |
 | prefecture_id  | integer     | null: false                   |
 | delivery_day   | integer     | null: false                   |
-| user           | reference   | null: false,foreign_key: true |
+| delivery_fee_id| integer     | null: false                   |
+| states_id      | integer     | null: false                   |
 
 ### Association
-
+- has_one :user
 - has_one :purchase
 - belongs_to_active_hash :categories
-- belongs_to_active_hush :brands
 - belongs_to_active_hush :prefecture
 - belongs_to_active_hush :delivery_day
+- belongs_to_active_hush :delivery_fee
+- belongs_to_active_hush :state_id
 
 ## purchase テーブル
 
@@ -86,6 +87,8 @@ Things you may want to cover:
 
 - belongs_to_active_hush :prefecture
 - belongs_to :purchase
+
+
 
 
 * Database initialization
