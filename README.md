@@ -72,16 +72,22 @@ Things you may want to cover:
 - belongs_to :items
 - has one :purchase_add
 
-## purchase テーブル 
+## purchase_add テーブル 
 
 | Column         | Type        | Options                       |
 | -------------- | ------------| ----------------------------- |
 | postal_code    | string      | null: false                   |
-| prefecture_id  | string      | null: false                   |
-| city           | text        | null: false                   |
+| prefecture_id  | integer     | null: false                   |
+| city           | string      | null: false                   |
 | house_number   | integer     | null: false                   |
-| building_name  | integer     | null: false                   |
+| building_name  | integer     |                               |
 | tel_number     | string      | null: false                   |
+
+### Association
+
+- belongs_to_active_hush :prefecture
+- belongs_to :purchase
+
 
 * Database initialization
 
