@@ -17,16 +17,21 @@ Things you may want to cover:
 
 ## user テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| name            | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| family_name     | string | null: false |
+| first_name      | string | null: false |
+| family_name_kana| string | null: false |
+| first_name_kana | string | null: false |
+| birth_date      | date   | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :purchases
+- has_one :purchases
 
 ## items テーブル
 
@@ -67,6 +72,16 @@ Things you may want to cover:
 - belongs_to :items
 - has one :purchase_add
 
+## purchase テーブル 
+
+| Column         | Type        | Options                       |
+| -------------- | ------------| ----------------------------- |
+| postal_code    | string      | null: false                   |
+| prefecture_id  | string      | null: false                   |
+| city           | text        | null: false                   |
+| house_number   | integer     | null: false                   |
+| building_name  | integer     | null: false                   |
+| tel_number     | string      | null: false                   |
 
 * Database initialization
 
