@@ -31,7 +31,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_one :purchase
+- has_many :purchases
 
 ## items テーブル
 
@@ -41,16 +41,12 @@ Things you may want to cover:
 | image          | string      | null: false                   |
 | introduction   | text        | null: false                   |
 | category_id    | integer     | null: false                   |
-| brands_id      | integer     | null: false                   |
-| states         | string      | null: false                   |
+| states_id      | integer     | null: false                   |
 | price          | integer     | null: false                   |
-| delivery_fee   | string      | null: false                   |
-| prefecture_id  | string      | null: false                   |
+| delivery_fee_id| integer     | null: false                   |
+| prefecture_id  | integer     | null: false                   |
 | delivery_day   | integer     | null: false                   |
-| user_id        | references  | null: false,foreign_key: true |
-
-
-
+| user           | reference   | null: false,foreign_key: true |
 
 ### Association
 
@@ -64,8 +60,8 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| users_id  | references | null: false, foreign_key: true |
-| items_id  | references | null: false, foreign_key: true |
+| users     | reference  | null: false, foreign_key: true |
+| items     | reference  | null: false, foreign_key: true |
 
 ### Association
 
@@ -83,7 +79,7 @@ Things you may want to cover:
 | house_number   | integer     | null: false                   |
 | building_name  | integer     |                               |
 | tel_number     | string      | null: false                   |
-| purchase_id    | reference   | null: false                   |
+| purchase       | reference   | null: false                   |
 
 
 ### Association
