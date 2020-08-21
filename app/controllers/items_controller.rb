@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     def create
     end
 
+    
 
     private
     def item_params
