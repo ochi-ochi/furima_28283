@@ -18,7 +18,7 @@ class Item < ApplicationRecord
         validates :name
         validates :introduction
         validates :price, inclusion:{in:300..9999999}
-        validates :category_id, :delivery_day_id, :delivery_fee_id, :states_id, numericality: { other_than: 0 }
+        validates :category_id, :delivery_day_id, :delivery_fee_id, :states_id, numericality: { other_than: 1 }
         validates :prefecture_id
     end
 
