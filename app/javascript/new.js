@@ -2,7 +2,6 @@
     const priceForm = document.getElementById("item-price")
     
     priceForm.addEventListener('input',function(){
-      console.log("OK")
         let taxForm =document.getElementById("add-tax-price");
         let profitForm =document.getElementById("profit");
 
