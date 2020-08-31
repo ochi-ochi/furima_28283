@@ -1,7 +1,8 @@
 const pay = () =>{
+    console.log("ok")
     Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
     const form = document.getElementById("charge-form");
-    console.log(form);
+    // console.log(form);
 
     form.addEventListener("submit",(e)=>{
         e.preventDefault();
@@ -10,19 +11,20 @@ const pay = () =>{
         const formData = new FormData(formResult);
 
         const card = {
-            number: formData.get("purchase[number]"),
-            cvc: formData.get("purchase[cvc]"),
-            exp_month: formData.get("purchase[exp_month]"),
-            exp_year: `20${formData.get("purchase[exp_year]")}`,
+            number: formData.get("purchase_address[number]"),
+            cvc: formData.get("purchase_address[cvc]"),
+            exp_month: formData.get("purchase_address[exp_month]"),
+            exp_year: `20${formData.get("purchase_address[exp_year]")}`,
         };
 
-        console.log(card);
+        // console.log(card);
     
     Payjp.createToken(card, (status, response)=>{
+        console.log(response)
         if (status === 200) {
             const token = response.id;
             const renderDom = document.getElementById("charge-form");
-            const tokenObj = `<input value=${token} type="hidden" name='token'>`;
+            const tokenObj = `<input value=${token} type="hidden" name='purchase_address[token]'>`;
             renderDom.insertAdjacentHTML("beforeend", tokenObj);
 
             document.getElementById("card-number").removeAttribute("name");
@@ -38,4 +40,4 @@ const pay = () =>{
   });
 };
 
-window.addEventListener("load",pay);
+window.addEventListener("turbolinks:load", pay);
