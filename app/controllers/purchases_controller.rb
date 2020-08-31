@@ -1,10 +1,15 @@
 class PurchasesController < ApplicationController 
-  
+  before_action :move_to_signin
   def index
-    @item = Item.find(params[:item_id])
     @purchase = Purchase.new
-    @purchase_address = PurchaseAddress.new
+
+    if  @purchase.nil? && current_user.id != @item.user_id
+        @item = Item.find(params[:item_id])
+        @purchase_address = PurchaseAddress.new
+   else
+      redirect_to root_path
    end
+  end
 
   def create
     @purchase = PurchaseAddress.new(purchaseaddress_params)
@@ -19,6 +24,7 @@ class PurchasesController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:id, :name, :price, :image)
   end
@@ -36,4 +42,9 @@ class PurchasesController < ApplicationController
       currency:'jpy'                 
     )
   end
+
+  def move_to_signin
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 end
+
