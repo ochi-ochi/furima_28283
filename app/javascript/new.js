@@ -5,7 +5,6 @@
         let taxForm =document.getElementById("add-tax-price");
         let profitForm =document.getElementById("profit");
 
-        
         // 2 Get price
         let price= Number(priceForm.value);
 
