@@ -1,8 +1,8 @@
 class PurchasesController < ApplicationController 
+  before_action :set_action_item, only: [:index, :create]
   before_action :move_to_signin
   def index
     @purchase = Purchase.new
-    @item = Item.find(params[:item_id])
   
     if current_user.id != @item.user_id
         @purchase_address = PurchaseAddress.new
@@ -13,7 +13,6 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = PurchaseAddress.new(purchaseaddress_params)
-    @item = Item.find(params[:item_id])
     if @purchase.valid?
       pay_item
       @purchase.save
@@ -45,6 +44,10 @@ class PurchasesController < ApplicationController
 
   def move_to_signin
     redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def set_action_item
+    @item = Item.find(params[:item_id])
   end
 end
 
