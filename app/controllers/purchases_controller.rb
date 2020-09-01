@@ -1,13 +1,14 @@
 class PurchasesController < ApplicationController 
   before_action :set_action_item, only: [:index, :create]
   before_action :move_to_signin
+  
   def index
     @purchase = Purchase.new
   
-    if current_user.id != @item.user_id
+    if @item.purchase.blank? || current_user.id != @item.user_id
         @purchase_address = PurchaseAddress.new
     else
-      redirect_to root_path
+        redirect_to root_path
     end
   end
 
@@ -50,4 +51,3 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 end
-

@@ -4,7 +4,9 @@ class PurchaseAddress
     attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :house_number, :building_name, :tel_number, :token
 
     with_options presence: true do
-        validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/}
+        POSTAL_CODE_REGEX = /\A\d{3}[-]\d{4}\z
+
+        validates :postal_code, format: {with: POSTAL_CODE_REGEX}
         validates :prefecture_id
         validates :city
         validates :house_number
