@@ -2,13 +2,13 @@ class PurchasesController < ApplicationController
   before_action :move_to_signin
   def index
     @purchase = Purchase.new
-
-    if  @purchase.nil? && current_user.id != @item.user_id
-        @item = Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
+  
+    if current_user.id != @item.user_id
         @purchase_address = PurchaseAddress.new
-   else
+    else
       redirect_to root_path
-   end
+    end
   end
 
   def create
