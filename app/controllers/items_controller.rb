@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, only: [:edit, :destroy]
+  before_action :set_item, only: [:edit, :destroy, :show]
 
   def index
     @items = Item.all.order(id: :DESC)
@@ -29,15 +29,6 @@ class ItemsController < ApplicationController
       redirect_to item_path
     end
   end
-
-  def show
-     @item = Item.find(params[:id])
-    
-     if @item.purchase.present?
-        redirect_to root_path
-     end
-  end
-
  
   private
 
